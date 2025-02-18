@@ -1,0 +1,16 @@
+{
+  "not-found": "Page not found",
+  "footer": "Made by Can Kolay with ❤️",
+  "home": {
+    "text": "Home",
+    "description": "Turn any Spotify link into a stylish card with album art, song name, and details. Save and share it easily!",
+    "submit": "Submit",
+    "loading": "Loading...",
+    "error": "Error",
+    "usage": "Usage",
+    "mobile": "Mobile",
+    "desktop": "Desktop",
+    "mobile-usage": "Screenshot and crop",
+    "desktop-usage": "Right-click on the generated card and select 'Inspect'. Then, find the div that says 'SELECT ME', right-click on it, and choose 'Capture node screenshot'"
+  }
+}
