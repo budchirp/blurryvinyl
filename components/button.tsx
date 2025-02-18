@@ -3,7 +3,6 @@ import type { ComponentProps } from 'react'
 
 import { cn } from '@/lib/cn'
 import { cva, type VariantProps } from 'class-variance-authority'
-import { Loader2 } from 'lucide-react'
 
 const buttonVariants = cva(
   [

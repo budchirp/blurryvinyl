@@ -22,9 +22,11 @@ export const ClientHomePage: React.FC = (): React.ReactNode => {
   const [message, setMessage] = useState<string | null>(null)
   const [error, setError] = useState<boolean>(false)
   const submit = () => {
-    const regex = /\/track\/([a-zA-Z0-9]+)/
-    const match = url.match(regex)
-    const id = match?.[1] ?? ''
+
+const regex = /\/(track|album)\/([a-zA-Z0-9]+)/
+const match = url.match(regex)
+const id = match?.[2] ?? ''
+
 
     setMessage(t('loading'))
 
@@ -62,7 +64,7 @@ export const ClientHomePage: React.FC = (): React.ReactNode => {
             placeholder='Spotify URL'
           />
 
-          <Button disabled={url.length < 1} onClick={submit}>
+          <Button onClick={submit}>
             {t('submit')}
           </Button>
         </div>

@@ -16,18 +16,18 @@ export const generateMetadata = async (): Promise<Metadata> => {
   const t = await getTranslations('home')
 
   return {
-    description: t("description"),
+    description: t('description'),
     keywords: [''],
     title: {
-      default: t("text"),
+      default: t('text'),
       template: `%s - ${appName}`
     },
     twitter: {
       card: 'summary',
       creator: 'Can Kolay',
-      description: t("description"),
+      description: t('description'),
       title: {
-        default: t("text"),
+        default: t('text'),
         template: `%s - ${appName}`
       }
     },
@@ -35,11 +35,11 @@ export const generateMetadata = async (): Promise<Metadata> => {
       siteName: appName,
       locale: 'en_US',
       type: 'website',
-      description: t("description"),
+      description: t('description'),
       url: appUrl,
       countryName: 'Türkiye',
       title: {
-        default: t("text"),
+        default: t('text'),
         template: `%s - ${appName}`
       }
     }
@@ -65,13 +65,13 @@ const Layout: React.FC<DynamicLayoutProps> = async ({ children, params }: Dynami
           <div className='absolute z-0 top-[80%] right-[10%] size-96 opacity-25 bg-accent-700 rounded-full blur-[128px]' />
         </div>
 
-          <div className='grid gap-4 size-full'>
-            <div className='size-full min-h-screen'>
-              <main className='size-full'>{children}</main>
-            </div>
-
-            <Footer />
+        <div className='grid gap-4 relative z-10 size-full'>
+          <div className='w-full min-h-screen'>
+            <main className='size-full'>{children}</main>
           </div>
+
+          <Footer />
+        </div>
 
         <Script
           defer

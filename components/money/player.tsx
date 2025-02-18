@@ -28,9 +28,9 @@ export const PlayerBackground: React.FC<PlayerBackgroundProps> = ({
 
       <div className='flex items-center justify-center size-full'>{children}</div>
 
-      <p className='absolute bottom-4 left-4'>
+      <div className='absolute bottom-4 left-4'>
         <Logo domain link={false} className='text-lg' />
-      </p>
+      </div>
     </div>
   )
 }
@@ -77,13 +77,13 @@ export const Player: React.FC<PlayerProps> = ({
             )}
           >
             <div className='grid gap-1'>
-              <span className='flex gap-1.5 items-center'>
+              <h2 className='flex gap-1.5 items-center'>
                 <Disc3 className='flex items-center justify-center' size={16} />
 
-                <h2 className='text-lg flex-1 grow font-bold leading-none text-ellipsis'>
+                <span className='text-lg flex-1 grow font-bold leading-none text-ellipsis'>
                   {title || ''}
-                </h2>
-              </span>
+                </span>
+              </h2>
 
               <h2 className='font-medium leading-none text-text-tertiary'>{artist || ''}</h2>
             </div>
