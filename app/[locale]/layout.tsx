@@ -65,15 +65,13 @@ const Layout: React.FC<DynamicLayoutProps> = async ({ children, params }: Dynami
           <div className='absolute z-0 top-[80%] right-[10%] size-96 opacity-25 bg-accent-700 rounded-full blur-[128px]' />
         </div>
 
-        <div id='main' className='relative size-full z-10'>
           <div className='grid gap-4 size-full'>
-            <div className='w-full min-h-screen'>
+            <div className='size-full min-h-screen'>
               <main className='size-full'>{children}</main>
             </div>
 
             <Footer />
           </div>
-        </div>
 
         <Script
           defer

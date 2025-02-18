@@ -10,7 +10,7 @@ export const Footer: React.FC = async () => {
 
   return (
     <footer className='bg-background-primary/50 backdrop-blur-xs border-t border-border flex h-16 w-full items-center relative justify-center'>
-      <Container className='flex h-full items-center justify-between gap-2'>
+      <Container className='flex h-full items-center text-center justify-between'>
         <Logo />
 
         <Link href='https://cankolay.com'>{t('footer')}</Link>

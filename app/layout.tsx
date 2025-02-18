@@ -58,7 +58,7 @@ const Layout: React.FC<LayoutProps> = ({ children }: LayoutProps): React.ReactNo
     <html suppressHydrationWarning lang='en'>
       <body
         className={cn(
-          'relative overflow-x-hidden size-full text-text-primary bg-background-primary',
+          'relative size-full text-text-primary bg-background-primary',
           lexend.variable,
           jetbrainsMono.variable
         )}
