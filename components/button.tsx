@@ -16,7 +16,7 @@ const buttonVariants = cva(
       },
       color: {
         primary:
-          'bg-accent-600 text-gray-50 hover:bg-accent-700 hover:text-gray-100 disabled:text-gray-200',
+          'bg-accent-600 border border-transparent text-gray-50 hover:bg-accent-700 hover:text-gray-100 disabled:text-gray-200',
         secondary:
           'bg-background-primary border border-border hover:bg-background-secondary hover:border-border-hover disabled:text-text-secondary text-text-primary hover:text-text-secondary'
       }

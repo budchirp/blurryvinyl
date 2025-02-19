@@ -11,6 +11,8 @@
     "mobile": "Mobile",
     "desktop": "Desktop",
     "mobile-usage": "Screenshot and crop",
-    "desktop-usage": "Right-click on the generated card and select 'Inspect'. Then, find the div that says 'SELECT ME', right-click on it, and choose 'Capture node screenshot'"
+    "desktop-usage": "Right-click on the generated card and select 'Inspect'. Then, find the div that says 'SELECT ME', right-click on it, and choose 'Capture node screenshot'",
+    "horizontal": "Horizontal",
+    "vertical": "Vertical"
   }
 }

@@ -17,16 +17,15 @@ export const ClientHomePage: React.FC = (): React.ReactNode => {
   const t = useTranslations('home')
 
   const [url, setUrl] = useState<string>('')
+  const [orientation, setOrienation] = useState<'vertical' | 'horizontal'>('vertical')
 
   const [song, setSong] = useState<Song | null>(null)
   const [message, setMessage] = useState<string | null>(null)
   const [error, setError] = useState<boolean>(false)
   const submit = () => {
-
-const regex = /\/(track|album)\/([a-zA-Z0-9]+)/
-const match = url.match(regex)
-const id = match?.[2] ?? ''
-
+    const regex = /\/(track|album)\/([a-zA-Z0-9]+)/
+    const match = url.match(regex)
+    const id = match?.[2] ?? ''
 
     setMessage(t('loading'))
 
@@ -56,6 +55,23 @@ const id = match?.[2] ?? ''
     <>
       <div className='grid gap-4 w-full'>
         <div className='grid gap-2 w-full'>
+          <div className='flex w-full justify-center items-center'>
+            <div className='border border-border bg-background-tertiary rounded-full flex gap-2 p-2'>
+              <Button
+                color={orientation === 'vertical' ? 'primary' : 'secondary'}
+                onClick={() => setOrienation('vertical')}
+              >
+                {t('vertical')}
+              </Button>
+              <Button
+                color={orientation === 'horizontal' ? 'primary' : 'secondary'}
+                onClick={() => setOrienation('horizontal')}
+              >
+                {t('horizontal')}
+              </Button>
+            </div>
+          </div>
+
           <Input
             type='url'
             icon={<Music size={16} />}
@@ -64,20 +80,18 @@ const id = match?.[2] ?? ''
             placeholder='Spotify URL'
           />
 
-          <Button onClick={submit}>
-            {t('submit')}
-          </Button>
+          <Button onClick={submit}>{t('submit')}</Button>
         </div>
 
         {song && (
           <div className='flex justify-center w-full mx-auto'>
-            <div className='p-2 bg-black'>
+            <div className='p-1 bg-black'>
               <PlayerBackground image={song.image}>
                 <Player
                   title={song.title}
                   artist={song.artist}
                   image={song.image}
-                  orientation='vertical'
+                  orientation={orientation}
                 />
               </PlayerBackground>
             </div>

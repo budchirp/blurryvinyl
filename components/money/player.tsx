@@ -28,8 +28,8 @@ export const PlayerBackground: React.FC<PlayerBackgroundProps> = ({
 
       <div className='flex items-center justify-center size-full'>{children}</div>
 
-      <div className='absolute bottom-4 left-4'>
-        <Logo domain link={false} className='text-lg' />
+      <div className='absolute bottom-4 w-full right-4'>
+        <Logo domain link={false} className='text-lg absolute bottom-4 right-4' />
       </div>
     </div>
   )

@@ -11,6 +11,8 @@
     "mobile": "Mobil",
     "desktop": "Masaüstü",
     "mobile-usage": "Ekran görüntüsü al ve kırp",
-    "desktop-usage": "Oluşturulan kartın üzerine sağ tıklayıp 'İncele'ye bas. Ardından, `SELECT ME` yazan div'i seç, sağ tıklayıp 'Düğümün ekran görüntüsünü al' seçeneğine tıkla"
+    "desktop-usage": "Oluşturulan kartın üzerine sağ tıklayıp 'İncele'ye bas. Ardından, `SELECT ME` yazan div'i seç, sağ tıklayıp 'Düğümün ekran görüntüsünü al' seçeneğine tıkla",
+    "horizontal": "Yatay",
+    "vertical": "Dikey"
   }
 }
