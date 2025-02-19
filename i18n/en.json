@@ -3,7 +3,7 @@
   "footer": "Made by Can Kolay with ❤️",
   "home": {
     "text": "Home",
-    "description": "Turn any Spotify link into a stylish card with album art, song name, and details. Save and share it easily!",
+    "description": "Generate spotify cards for your stories!",
     "submit": "Submit",
     "loading": "Loading...",
     "error": "Error",
