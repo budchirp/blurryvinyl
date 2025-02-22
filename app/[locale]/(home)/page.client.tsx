@@ -3,7 +3,7 @@
 import type React from 'react'
 import { useState } from 'react'
 
-import { Player, PlayerBackground } from '@/components/money/player'
+import { Player, PlayerBackground } from '@/components/player'
 import { Heading } from '@/components/heading'
 import { Button } from '@/components/button'
 import { useTranslations } from 'next-intl'
@@ -15,19 +15,20 @@ import type { Song } from '@/types/song'
 
 export const ClientHomePage: React.FC = (): React.ReactNode => {
   const t = useTranslations('home')
+  const t_common = useTranslations('common')
 
   const [url, setUrl] = useState<string>('')
   const [orientation, setOrienation] = useState<'vertical' | 'horizontal'>('vertical')
 
   const [song, setSong] = useState<Song | null>(null)
-  const [message, setMessage] = useState<string | null>(null)
-  const [error, setError] = useState<boolean>(false)
+  const [loading, setLoading] = useState<boolean>(false)
+  const [error, setError] = useState<string | null>(null)
   const submit = () => {
     const regex = /\/(track|album)\/([a-zA-Z0-9]+)/
     const match = url.match(regex)
     const id = match?.[2] ?? ''
 
-    setMessage(t('loading'))
+    setLoading(true)
 
     const fetch = async () => {
       const response = await Fetch.post<{
@@ -40,12 +41,12 @@ export const ClientHomePage: React.FC = (): React.ReactNode => {
       const json = await response.json()
       if (response.status === 200) {
         setSong(json.data)
-        setMessage(null)
-        setError(false)
+        setError(null)
       } else {
-        setMessage(json.message)
-        setError(true)
+        setError(json.message)
       }
+
+      setLoading(false)
     }
 
     fetch()
@@ -80,13 +81,17 @@ export const ClientHomePage: React.FC = (): React.ReactNode => {
             placeholder='Spotify URL'
           />
 
-          <Button onClick={submit}>{t('submit')}</Button>
+          <div>
+            <Button loading={loading} onClick={submit}>
+              {t_common('submit')}
+            </Button>
+          </div>
         </div>
 
         {song && (
           <div className='flex justify-center w-full mx-auto'>
             <div className='p-1 bg-black'>
-              <PlayerBackground image={song.image}>
+              <PlayerBackground orientation={orientation} image={song.image}>
                 <Player
                   title={song.title}
                   artist={song.artist}
@@ -98,10 +103,10 @@ export const ClientHomePage: React.FC = (): React.ReactNode => {
           </div>
         )}
 
-        {message && (
+        {error && (
           <div className='w-full justify-center'>
-            {error && <h1 className='text-2xl font-bold text-center'>{t('error')}</h1>}
-            <h1 className='text-xl font-medium text-center'>{message}</h1>
+            <h1 className='text-2xl font-bold text-center'>{t_common('error')}</h1>
+            <h2 className='text-xl font-medium text-center'>{error}</h2>
           </div>
         )}
       </div>

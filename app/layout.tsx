@@ -1,6 +1,6 @@
 import type React from 'react'
 
-import { JetBrains_Mono, Lexend } from 'next/font/google'
+import { Lexend } from 'next/font/google'
 import { appName, appUrl } from '@/data'
 import { cn } from '@/lib/cn'
 
@@ -16,7 +16,6 @@ export const metadata: Metadata = {
   creator: 'Can Kolay',
   publisher: 'Can Kolay',
   authors: [{ name: 'Can Kolay', url: 'https://cankolay.com' }],
-  manifest: `${appUrl}/manifest.json`,
   formatDetection: {
     email: false,
     address: false,
@@ -50,7 +49,7 @@ const lexend = Lexend({
 
 const Layout: React.FC<LayoutProps> = ({ children }: LayoutProps): React.ReactNode => {
   return (
-    <html suppressHydrationWarning lang='en'>
+    <html suppressHydrationWarning lang='en-US'>
       <body
         className={cn(
           'relative size-full text-text-primary bg-background-primary',

@@ -6,7 +6,7 @@ import { getTranslations } from 'next-intl/server'
 import Link from 'next/link'
 
 export const Footer: React.FC = async () => {
-  const t = await getTranslations()
+  const t = await getTranslations('common')
 
   return (
     <footer className='bg-background-primary/50 backdrop-blur-xs border-t border-border flex h-16 w-full items-center relative justify-center'>

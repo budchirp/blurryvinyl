@@ -17,13 +17,7 @@ export const Logo: React.FC<LogoProps> = ({
   ...props
 }: LogoProps): React.ReactNode => {
   const LogoComponent = (
-    <h1
-      {...props}
-      className={cn(
-        'text-text-primary flex h-full items-center justify-center text-2xl font-bold',
-        className
-      )}
-    >
+    <h1 {...props} className={cn('text-text-primary text-2xl font-bold', className)}>
       {domain ? appDomain : appName}
     </h1>
   )

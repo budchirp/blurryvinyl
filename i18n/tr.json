@@ -1,18 +1,20 @@
 {
-  "not-found": "Sayfa bulunamadı",
-  "footer": "Can Kolay tarafından ❤️ ile yapıldı",
   "home": {
-    "text": "Ana Sayfa",
-    "description": "Spotify linkini yapıştır, albüm kapağı ve şarkı adıyla havalı bi’ kart yap. Kaydet, paylaş!",
-    "submit": "Gönder",
-    "loading": "Yükleniyor...",
-    "error": "Hata",
+    "text": "Anasayfa",
+    "description": "Hikayeleriniz için Spotify kartları oluşturun!",
     "usage": "Kullanım",
     "mobile": "Mobil",
     "desktop": "Masaüstü",
-    "mobile-usage": "Ekran görüntüsü al ve kırp",
-    "desktop-usage": "Oluşturulan kartın üzerine sağ tıklayıp 'İncele'ye bas. Ardından, `SELECT ME` yazan div'i seç, sağ tıklayıp 'Düğümün ekran görüntüsünü al' seçeneğine tıkla",
+    "mobile-usage": "Ekran görüntüsü alın ve kırpın",
+    "desktop-usage": "Oluşturulan karta sağ tıklayın ve 'İncele'yi seçin. Ardından 'SELECT ME' yazan div'i bulun, sağ tıklayın ve 'Düğüm ekran görüntüsünü yakala'yı seçin",
     "horizontal": "Yatay",
     "vertical": "Dikey"
+  },
+  "common": {
+    "submit": "Gönder",
+    "loading": "Yükleniyor...",
+    "error": "Hata",
+    "not-found": "Sayfa bulunamadı",
+    "footer": "Can Kolay tarafından ❤️ ile yapıldı"
   }
 }

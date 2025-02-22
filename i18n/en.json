@@ -1,12 +1,7 @@
 {
-  "not-found": "Page not found",
-  "footer": "Made by Can Kolay with ❤️",
   "home": {
     "text": "Home",
     "description": "Generate spotify cards for your stories!",
-    "submit": "Submit",
-    "loading": "Loading...",
-    "error": "Error",
     "usage": "Usage",
     "mobile": "Mobile",
     "desktop": "Desktop",
@@ -14,5 +9,12 @@
     "desktop-usage": "Right-click on the generated card and select 'Inspect'. Then, find the div that says 'SELECT ME', right-click on it, and choose 'Capture node screenshot'",
     "horizontal": "Horizontal",
     "vertical": "Vertical"
+  },
+  "common": {
+    "submit": "Submit",
+    "loading": "Loading...",
+    "error": "Error",
+    "not-found": "Page not found",
+    "footer": "Made by Can Kolay with ❤️"
   }
 }

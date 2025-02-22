@@ -5,8 +5,9 @@ import { Disc3 } from 'lucide-react'
 import type { Song } from '@/types/song'
 
 export type PlayerBackgroundProps = {
-  image: string
   children: React.ReactNode
+  image: PlayerProps['image']
+  orientation: PlayerProps['orientation']
 }
 
 export type PlayerProps = Song & {
@@ -14,13 +15,17 @@ export type PlayerProps = Song & {
 }
 
 export const PlayerBackground: React.FC<PlayerBackgroundProps> = ({
+  children,
   image,
-  children
+  orientation
 }: PlayerBackgroundProps) => {
   return (
     <div
       id='SELECT ME'
-      className='select-none z-50 m-2 relative flex p-12 md:p-22 w-[18rem] h-[32rem] md:w-[27rem] md:h-[48rem] items-center justify-center border border-border overflow-hidden size-full'
+      className={cn(
+        'select-none z-50 m-2 relative flex p-12 md:p-22 w-[18rem] h-[32rem] md:w-[27rem] md:h-[48rem] items-center justify-center border border-border overflow-hidden size-full',
+        orientation === 'horizontal' && 'px-6 md:px-12'
+      )}
     >
       <div className='absolute left-0 top-0 select-none size-full blur-2xl opacity-75'>
         <img src={image} alt='album' className='object-fill size-full' />
@@ -56,10 +61,15 @@ export const Player: React.FC<PlayerProps> = ({
         <div
           className={cn(
             'flex flex-col z-10 size-full gap-2 relative overflow-hidden',
-            orientation === 'horizontal' && 'flex-row items-center'
+            orientation === 'horizontal' && 'flex-row'
           )}
         >
-          <div className='border border-border aspect-square rounded-2xl flex overflow-hidden select-none items-center justify-center'>
+          <div
+            className={cn(
+              'border border-border flex items-center justify-center rounded-2xl select-none',
+              orientation === 'horizontal' && 'size-16'
+            )}
+          >
             <img
               className={cn(
                 'aspect-square rounded-2xl size-full object-cover',
@@ -73,14 +83,15 @@ export const Player: React.FC<PlayerProps> = ({
           <div
             className={cn(
               'flex gap-2 flex-col px-2 pb-2 pt-1',
-              orientation === 'horizontal' && 'pe-2 py-1 ps-0 justify-between'
+              orientation === 'horizontal' &&
+                'pe-2 py-1 ps-0 justify-center w-min grow h-full items-between'
             )}
           >
             <div className='grid gap-1'>
-              <h2 className='flex gap-1.5 items-center'>
+              <h2 className='flex gap-1.5'>
                 <Disc3 className='flex items-center justify-center' size={16} />
 
-                <span className='text-lg flex-1 grow font-bold leading-none text-ellipsis'>
+                <span className='text-lg flex-1 grow font-bold leading-none break-words text-ellipsis'>
                   {title || ''}
                 </span>
               </h2>

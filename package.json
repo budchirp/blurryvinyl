@@ -11,14 +11,14 @@
   },
   "dependencies": {
     "next": "15.1.7",
-    "next-intl": "^3.26.4",
+    "next-intl": "^3.26.5",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
   },
   "devDependencies": {
     "@biomejs/biome": "1.9.4",
     "@headlessui/react": "^2.2.0",
-    "@tailwindcss/postcss": "^4.0.7",
+    "@tailwindcss/postcss": "^4.0.8",
     "@types/node": "^22",
     "@types/react": "^19",
     "@types/react-dom": "^19",
@@ -27,9 +27,9 @@
     "cssnano-preset-advanced": "^7.0.6",
     "lucide-react": "^0.475.0",
     "next-themes": "^0.4.4",
-    "postcss": "^8.5.2",
+    "postcss": "^8.5.3",
     "tailwind-merge": "^3.0.1",
-    "tailwindcss": "^4.0.7",
+    "tailwindcss": "^4.0.8",
     "typescript": "^5"
   }
 }
