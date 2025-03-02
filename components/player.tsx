@@ -25,8 +25,8 @@ export const PlayerBackground: React.FC<PlayerBackgroundProps> = ({
   return (
     <div
       className={cn(
-        'select-none z-50 relative flex p-16 max-w-96 items-center justify-center bg-black overflow-hidden size-full',
-        orientation === 'horizontal' && 'px-6 md:px-12'
+        'select-none z-50 relative flex p-16 min-w-72 min-h-128 w-90 h-160 max-w-108 max-h-192 items-center justify-center bg-black overflow-hidden',
+        orientation === 'horizontal' && 'px-8'
       )}
       style={{
         aspectRatio: '9 / 16'
@@ -51,65 +51,60 @@ export const Player: React.FC<PlayerProps> = ({
   orientation
 }: PlayerProps): React.ReactNode => {
   return (
-    <div className={cn('mx-auto flex select-none w-full')}>
-      <Box className='relative flex flex-col overflow-auto' padding='small' variant='primary'>
+    <Box className='relative flex w-full h-min flex-col' padding='small' variant='primary'>
+      <div
+        className={cn(
+          'absolute inset-0 overflow-hidden w-full h-3/4 blur-3xl opacity-75',
+          orientation === 'horizontal' && 'h-full w-2/4'
+        )}
+      >
+        <img src={image} alt='album' className='object-fill size-full select-none' />
+      </div>
+
+      <div
+        className={cn(
+          'flex flex-col z-10 size-full gap-2 relative overflow-hidden',
+          orientation === 'horizontal' && 'flex-row'
+        )}
+      >
         <div
           className={cn(
-            'absolute left-0 top-0 select-none w-full h-3/4 blur-3xl opacity-75',
-            orientation === 'horizontal' && 'h-full w-2/4'
+            'border border-border aspect-square flex items-center justify-center rounded-2xl',
+            orientation === 'horizontal' && 'size-16'
           )}
         >
-          <img src={image} alt='album' className='object-fill size-full' />
+          <img
+            className={cn(
+              'aspect-square rounded-2xl object-cover',
+              orientation === 'horizontal' ? 'size-16' : 'size-full'
+            )}
+            src={image}
+            alt='album'
+          />
         </div>
 
         <div
           className={cn(
-            'flex flex-col z-10 size-full gap-2 relative overflow-hidden',
-            orientation === 'horizontal' && 'flex-row'
+            'flex gap-2 flex-col px-2 pb-2 pt-1',
+            orientation === 'horizontal' && 'pe-2 py-1 ps-0 justify-center'
           )}
         >
-          <div
-            className={cn(
-              'border border-border flex items-center justify-center rounded-2xl select-none',
-              orientation === 'horizontal' && 'size-16'
-            )}
-          >
-            <img
-              className={cn(
-                'aspect-square rounded-2xl size-full object-cover',
-                orientation === 'horizontal' && 'size-16'
-              )}
-              src={image}
-              alt='album'
+          <h2 className='flex items-center gap-1.5'>
+            <Disc3
+              color='white'
+              className='flex text-text-primary items-center justify-center'
+              size={16}
             />
-          </div>
 
-          <div
-            className={cn(
-              'flex gap-2 flex-col px-2 pb-2 pt-1',
-              orientation === 'horizontal' &&
-                'pe-2 py-1 ps-0 justify-center w-min grow h-full items-between'
-            )}
-          >
-            <div className='grid gap-1'>
-              <h2 className='flex gap-1.5'>
-                <Disc3
-                  color='white'
-                  className='flex text-text-primary items-center justify-center'
-                  size={16}
-                />
+            <span className='text-lg flex-1 font-bold leading-none break-words'>{title || ''}</span>
+          </h2>
 
-                <span className='text-lg flex-1 grow font-bold leading-none break-words text-ellipsis'>
-                  {title || ''}
-                </span>
-              </h2>
-
-              <h2 className='font-medium leading-none text-text-tertiary'>{artist || ''}</h2>
-            </div>
-          </div>
+          <h2 className='font-medium flex items-center leading-none text-text-tertiary break-words'>
+            {artist || ''}
+          </h2>
         </div>
-      </Box>
-    </div>
+      </div>
+    </Box>
   )
 }
 Player.displayName = 'Player'

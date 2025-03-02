@@ -74,6 +74,7 @@ export const ClientHomePage: React.FC = (): React.ReactNode => {
               >
                 {t('vertical')}
               </Button>
+
               <Button
                 color={orientation === 'horizontal' ? 'primary' : 'secondary'}
                 onClick={() => setOrienation('horizontal')}
@@ -114,11 +115,9 @@ export const ClientHomePage: React.FC = (): React.ReactNode => {
             </div>
 
             <div className='flex w-full justify-center'>
-              <Button>
-                <a download={`${slugify(`${song.title}-${song.artist}`)}.jpg`} href={image}>
-                  {t('download')}
-                </a>
-              </Button>
+              <a download={`${slugify(`${song.title}-${song.artist}`)}.jpg`} href={image}>
+                <Button>{t('download')}</Button>
+              </a>
             </div>
           </div>
         )}
