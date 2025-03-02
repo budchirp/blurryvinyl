@@ -75,5 +75,5 @@
 }
 
 *::-webkit-scrollbar {
-  position: absolute;
+  display: hidden;
 }

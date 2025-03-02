@@ -1,15 +1,16 @@
+import type React from 'react'
+
 import { cn } from '@/lib/cn'
 import { Box } from '@/components/box'
 import { Logo } from '@/components/logo'
 import { Disc3 } from 'lucide-react'
+
 import type { Song } from '@/types/song'
-import type { Ref } from 'react'
 
 export type PlayerBackgroundProps = {
   children: React.ReactNode
   image: PlayerProps['image']
   orientation: PlayerProps['orientation']
-  ref?: Ref<HTMLDivElement>
 }
 
 export type PlayerProps = Song & {
@@ -17,18 +18,19 @@ export type PlayerProps = Song & {
 }
 
 export const PlayerBackground: React.FC<PlayerBackgroundProps> = ({
-  ref,
   children,
   image,
   orientation
-}: PlayerBackgroundProps) => {
+}: PlayerBackgroundProps): React.ReactNode => {
   return (
     <div
-      ref={ref}
       className={cn(
-        'select-none z-50 relative flex p-12 md:p-22 w-[18rem] h-[32rem] md:w-[27rem] md:h-[48rem] items-center justify-center overflow-hidden size-full',
+        'select-none z-50 relative flex p-16 max-w-96 items-center justify-center bg-black overflow-hidden size-full',
         orientation === 'horizontal' && 'px-6 md:px-12'
       )}
+      style={{
+        aspectRatio: '9 / 16'
+      }}
     >
       <div className='absolute left-0 top-0 select-none size-full blur-2xl opacity-75'>
         <img src={image} alt='album' className='object-fill size-full' />
@@ -40,13 +42,14 @@ export const PlayerBackground: React.FC<PlayerBackgroundProps> = ({
     </div>
   )
 }
+PlayerBackground.displayName = 'PlayerBackground'
 
 export const Player: React.FC<PlayerProps> = ({
   title,
   artist,
   image,
   orientation
-}: PlayerProps) => {
+}: PlayerProps): React.ReactNode => {
   return (
     <div className={cn('mx-auto flex select-none w-full')}>
       <Box className='relative flex flex-col overflow-auto' padding='small' variant='primary'>
@@ -85,12 +88,16 @@ export const Player: React.FC<PlayerProps> = ({
             className={cn(
               'flex gap-2 flex-col px-2 pb-2 pt-1',
               orientation === 'horizontal' &&
-              'pe-2 py-1 ps-0 justify-center w-min grow h-full items-between'
+                'pe-2 py-1 ps-0 justify-center w-min grow h-full items-between'
             )}
           >
             <div className='grid gap-1'>
               <h2 className='flex gap-1.5'>
-                <Disc3 color='white' className='flex text-text-primary items-center justify-center' size={16} />
+                <Disc3
+                  color='white'
+                  className='flex text-text-primary items-center justify-center'
+                  size={16}
+                />
 
                 <span className='text-lg flex-1 grow font-bold leading-none break-words text-ellipsis'>
                   {title || ''}
@@ -105,3 +112,4 @@ export const Player: React.FC<PlayerProps> = ({
     </div>
   )
 }
+Player.displayName = 'Player'

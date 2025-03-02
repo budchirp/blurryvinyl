@@ -45,7 +45,7 @@ export const ClientHomePage: React.FC = (): React.ReactNode => {
         setError(null)
 
         setTimeout(() => {
-          takeScreenshot()
+          takeScreenshot('jpg')
         }, 1000)
       } else {
         setError(json.message)
@@ -101,8 +101,8 @@ export const ClientHomePage: React.FC = (): React.ReactNode => {
         {song && (
           <div className='grid gap-4'>
             <div className='w-full flex justify-center'>
-              <div className='bg-black'>
-                <PlayerBackground ref={ref} orientation={orientation} image={song.image}>
+              <div ref={ref} className='bg-black'>
+                <PlayerBackground orientation={orientation} image={song.image}>
                   <Player
                     title={song.title}
                     artist={song.artist}
@@ -115,7 +115,7 @@ export const ClientHomePage: React.FC = (): React.ReactNode => {
 
             <div className='flex w-full justify-center'>
               <Button>
-                <a download={`${slugify(`${song.title}-${song.artist}`)}.png`} href={image}>
+                <a download={`${slugify(`${song.title}-${song.artist}`)}.jpg`} href={image}>
                   {t('download')}
                 </a>
               </Button>
