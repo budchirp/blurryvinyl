@@ -2,13 +2,9 @@
   "home": {
     "text": "Anasayfa",
     "description": "Hikayeleriniz için Spotify kartları oluşturun!",
-    "usage": "Kullanım",
-    "mobile": "Mobil",
-    "desktop": "Masaüstü",
-    "mobile-usage": "Ekran görüntüsü alın ve kırpın",
-    "desktop-usage": "Oluşturulan karta sağ tıklayın ve 'İncele'yi seçin. Ardından 'SELECT ME' yazan div'i bulun, sağ tıklayın ve 'Düğüm ekran görüntüsünü yakala'yı seçin",
     "horizontal": "Yatay",
-    "vertical": "Dikey"
+    "vertical": "Dikey",
+    "download": "İndir"
   },
   "common": {
     "submit": "Gönder",

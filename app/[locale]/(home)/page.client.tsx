@@ -1,15 +1,16 @@
 'use client'
 
 import type React from 'react'
-import { useState } from 'react'
+import { useRef, useState } from 'react'
 
 import { Player, PlayerBackground } from '@/components/player'
-import { Heading } from '@/components/heading'
 import { Button } from '@/components/button'
 import { useTranslations } from 'next-intl'
 import { Input } from '@/components/input'
+import slugify from 'slugify'
 import { Music } from 'lucide-react'
 import { Fetch } from '@/lib/fetch'
+import { useScreenshot } from 'use-screenshot-hook'
 
 import type { Song } from '@/types/song'
 
@@ -39,9 +40,13 @@ export const ClientHomePage: React.FC = (): React.ReactNode => {
       })
 
       const json = await response.json()
-      if (response.status === 200) {
+      if (response.status < 400) {
         setSong(json.data)
         setError(null)
+
+        setTimeout(() => {
+          takeScreenshot()
+        }, 1000)
       } else {
         setError(json.message)
       }
@@ -51,6 +56,11 @@ export const ClientHomePage: React.FC = (): React.ReactNode => {
 
     fetch()
   }
+
+  const ref = useRef<HTMLDivElement>(null)
+  const { image, takeScreenshot } = useScreenshot({
+    ref
+  })
 
   return (
     <>
@@ -89,16 +99,26 @@ export const ClientHomePage: React.FC = (): React.ReactNode => {
         </div>
 
         {song && (
-          <div className='flex justify-center w-full mx-auto'>
-            <div className='p-1 bg-black'>
-              <PlayerBackground orientation={orientation} image={song.image}>
-                <Player
-                  title={song.title}
-                  artist={song.artist}
-                  image={song.image}
-                  orientation={orientation}
-                />
-              </PlayerBackground>
+          <div className='grid gap-4'>
+            <div className='w-full flex justify-center'>
+              <div className='bg-black'>
+                <PlayerBackground ref={ref} orientation={orientation} image={song.image}>
+                  <Player
+                    title={song.title}
+                    artist={song.artist}
+                    image={song.image}
+                    orientation={orientation}
+                  />
+                </PlayerBackground>
+              </div>
+            </div>
+
+            <div className='flex w-full justify-center'>
+              <Button>
+                <a download={`${slugify(`${song.title}-${song.artist}`)}.png`} href={image}>
+                  {t('download')}
+                </a>
+              </Button>
             </div>
           </div>
         )}
@@ -109,22 +129,6 @@ export const ClientHomePage: React.FC = (): React.ReactNode => {
             <h2 className='text-xl font-medium text-center'>{error}</h2>
           </div>
         )}
-      </div>
-
-      <div>
-        <Heading>{t('usage')}</Heading>
-
-        <div className='grid gap-4'>
-          <div>
-            <h2 className='text-xl font-medium'>{t('desktop')}</h2>
-            <p className='text-text-tertiary'>{t('desktop-usage')}</p>
-          </div>
-
-          <div>
-            <h2 className='text-xl font-medium'>{t('mobile')}</h2>
-            <p className='text-text-tertiary'>{t('mobile-usage')}</p>
-          </div>
-        </div>
       </div>
     </>
   )

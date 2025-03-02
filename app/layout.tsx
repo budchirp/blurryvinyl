@@ -49,7 +49,7 @@ const lexend = Lexend({
 
 const Layout: React.FC<LayoutProps> = ({ children }: LayoutProps): React.ReactNode => {
   return (
-    <html suppressHydrationWarning lang='en-US'>
+    <html className='dark' suppressHydrationWarning lang='en-US'>
       <body
         className={cn(
           'relative size-full text-text-primary bg-background-primary',

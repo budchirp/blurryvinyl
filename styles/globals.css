@@ -1,6 +1,6 @@
 @import "tailwindcss";
 
-@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
+@custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
   --color-accent-50: oklch(0.979 0.021 166.113);
@@ -50,25 +50,6 @@
 }
 
 :root {
-  --background-primary: theme("colors.white");
-  --background-secondary: theme("colors.gray.50");
-  --background-tertiary: theme("colors.gray.100");
-
-  --text-primary: theme("colors.gray.900");
-  --text-secondary: theme("colors.gray.800");
-  --text-tertiary: theme("colors.gray.700");
-
-  --text-accent-primary: theme("colors.accent.600");
-  --text-accent-secondary: theme("colors.accent.900");
-
-  --text-primary-reverse: theme("colors.gray.50");
-  --text-secondary-reverse: theme("colors.gray.100");
-
-  --border: theme("colors.gray.200");
-  --border-hover: theme("colors.gray.300");
-}
-
-.dark {
   --background-primary: theme("colors.gray.900");
   --background-secondary: theme("colors.gray.800");
   --background-tertiary: theme("colors.gray.700");
@@ -90,7 +71,7 @@
 * {
   -webkit-tap-highlight-color: transparent;
 
-  @apply appearance-none scroll-smooth font-main antialiased outline-hidden selection:bg-accent-300/90 selection:text-black/90;
+  @apply appearance-none scheme-only-dark scroll-smooth font-main antialiased outline-hidden selection:bg-accent-300/90 selection:text-black/90;
 }
 
 *::-webkit-scrollbar {
