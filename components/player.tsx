@@ -51,7 +51,11 @@ export const Player: React.FC<PlayerProps> = ({
   orientation
 }: PlayerProps): React.ReactNode => {
   return (
-    <Box className='relative flex w-full h-min flex-col' padding='small' variant='primary'>
+    <Box
+      className='relative overflow-hidden flex w-full h-min flex-col'
+      padding='small'
+      variant='primary'
+    >
       <div
         className={cn(
           'absolute inset-0 overflow-hidden w-full h-3/4 blur-3xl opacity-75',
@@ -63,7 +67,7 @@ export const Player: React.FC<PlayerProps> = ({
 
       <div
         className={cn(
-          'flex flex-col z-10 size-full gap-2 relative overflow-hidden',
+          'flex flex-col z-10 size-full gap-2 relative',
           orientation === 'horizontal' && 'flex-row'
         )}
       >

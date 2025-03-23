@@ -1,7 +1,7 @@
 'use client'
 
 import type React from 'react'
-import { useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 import { Player, PlayerBackground } from '@/components/player'
 import { Button } from '@/components/button'
@@ -61,6 +61,14 @@ export const ClientHomePage: React.FC = (): React.ReactNode => {
   const { image, takeScreenshot } = useScreenshot({
     ref
   })
+
+  useEffect(() => {
+    if (image) {
+      setTimeout(() => {
+        takeScreenshot('jpg')
+      }, 1000)
+    }
+  }, [orientation])
 
   return (
     <>
