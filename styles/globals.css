@@ -40,13 +40,10 @@
   --color-text-accent-primary: var(--text-accent-primary);
   --color-text-accent-secondary: var(--text-accent-secondary);
 
-  --color-text-primary-reverse: var(--text-primary-reverse);
-  --color-text-secondary-reverse: var(--text-secondary-reverse);
-
   --color-border: var(--border);
   --color-border-hover: var(--border-hover);
 
-  --font-main: "Lexend", "sans-serif";
+  --font-main: var(--font-main);
 }
 
 :root {
@@ -60,9 +57,6 @@
 
   --text-accent-primary: theme("colors.accent.500");
   --text-accent-secondary: theme("colors.accent.300");
-
-  --text-primary-reverse: theme("colors.gray.900");
-  --text-secondary-reverse: theme("colors.gray.700");
 
   --border: theme("colors.gray.690");
   --border-hover: theme("colors.gray.680");

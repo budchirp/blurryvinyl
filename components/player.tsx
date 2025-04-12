@@ -25,14 +25,14 @@ export const PlayerBackground: React.FC<PlayerBackgroundProps> = ({
   return (
     <div
       className={cn(
-        'select-none z-50 relative flex p-16 min-w-72 min-h-128 w-90 h-160 max-w-108 max-h-192 items-center justify-center bg-black overflow-hidden',
+        'select-none z-50 relative border-border shadow-2xl border rounded-3xl flex p-16 min-w-72 min-h-128 w-90 h-160 max-w-108 max-h-192 items-center justify-center bg-black overflow-hidden',
         orientation === 'horizontal' && 'px-8'
       )}
       style={{
         aspectRatio: '9 / 16'
       }}
     >
-      <div className='absolute left-0 top-0 select-none size-full blur-2xl opacity-75'>
+      <div className='absolute inset-0 size-full blur-2xl opacity-75'>
         <img src={image} alt='album' className='object-fill size-full' />
       </div>
 
